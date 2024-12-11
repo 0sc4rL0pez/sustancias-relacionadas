@@ -27,7 +27,7 @@ if uploaded_file is not None:
         dataframe_muestra['Pico_presente'] = False
 
         def areaCorrecta(fila):
-            return dataframe_blanco.iloc[fila,col_area]*2< dataframe_muestra.iloc[fila,col_area]
+            return float(dataframe_blanco.iloc[fila,col_area])*2 <= float(dataframe_muestra.iloc[fila,col_area])
 
         def estaEntiempo(t):
             contador = 0
