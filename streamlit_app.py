@@ -22,8 +22,8 @@ if uploaded_file is not None:
 
         intervalo_tiempo = st.number_input("Insertar intervalo de tiempo(%): ",value=0.5)
         area_multp = st.number_input("Insertar multiplicador área: ",value=2)
-        col_time= int(st.number_input("Nro columna para tiempo ret"))
-        col_area = int(st.number_input("Nro columna para area"))
+        col_time= int(st.number_input("Nro columna para tiempo ret",value=1))
+        col_area = int(st.number_input("Nro columna para area",value=2))
 
         def estaEntiempo(t):
             for val in dataframe_muestra.iloc[:,col_time].tolist():
