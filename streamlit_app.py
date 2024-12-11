@@ -28,7 +28,7 @@ if uploaded_file is not None:
         def estaEntiempo(t):
             for val in dataframe_muestra.iloc[:,col_time].tolist():
                 val = float(val)
-                if abs(100*(val-t)/t<intervalo_tiempo):
+                if abs(100*(val-t))/t<intervalo_tiempo:
                     return True
             
             return False
