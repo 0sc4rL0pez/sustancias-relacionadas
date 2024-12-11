@@ -35,9 +35,9 @@ if uploaded_file is not None:
                 val = float(val)
                 var_time = abs(100*(val-t))/t
                 if var_time<intervalo_tiempo:
-                    dataframe_muestra["Var Time"][contador] = min(var_time, dataframe_muestra["Var Time"][contador])
+                    dataframe_muestra.loc[contador,"Var Time"] = min(var_time, dataframe_muestra["Var Time"][contador])
                     if areaCorrecta(contador):
-                        dataframe_muestra["Pico_presente"][contador] = True
+                        dataframe_muestra.loc[contador,"Pico_presente"] = True
                 contador = contador + 1
             
         for val in dataframe_blanco.iloc[:,col_time].tolist():
