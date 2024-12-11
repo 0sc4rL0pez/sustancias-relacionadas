@@ -30,7 +30,7 @@ if uploaded_file is not None:
             if abs(100*(val-t)/t<intervalo_tiempo):
                 return True
         
-        return False
+        return True
     dataframe_blanco['esta'] = dataframe_blanco.iloc[:,col_time].map(lambda x:estaEntiempo(x))
 
     st.write(dataframe_blanco['esta'])
