@@ -33,6 +33,7 @@ if uploaded_file is not None:
             return True
         
         dataframe_blanco['esta'] = True
+        dataframe_blanco['Noesta'] = False
         #dataframe_blanco.iloc[:,col_time].map(lambda x:estaEntiempo(float(x)))
 
         st.write(dataframe_blanco)
