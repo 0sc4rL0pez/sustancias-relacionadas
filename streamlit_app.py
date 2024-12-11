@@ -20,11 +20,17 @@ if uploaded_file is not None:
         dataframe_muestra = pd.read_csv(uploaded_file,sep=',')
         st.write(dataframe_muestra)
 
-    intervalo_por = st.number_input("Insertar intervalo de tiempo(%): ",value=0.5)
+    intervalo_tiempo = st.number_input("Insertar intervalo de tiempo(%): ",value=0.5)
     area_multp = st.number_input("Insertar multiplicador área: ",value=2)
     col_time= int(st.number_input("Nro columna para tiempo ret"))
     col_area = int(st.number_input("Nro columna para area"))
 
-    dataframe_blanco['esta'] = dataframe_blanco.iloc[:,col_time]
+    def estaEntiempo(t):
+        for val in dataframe_muestra.iloc[:,col_time].tolist():
+            if abs(100*(val-t)/t<intervalo_tiempo):
+                return True
+        
+        return False
+    dataframe_blanco['esta'] = dataframe_blanco.iloc[:,col_time].map(lambda x:estaEntiempo(x))
 
     st.write(dataframe_blanco['esta'])
