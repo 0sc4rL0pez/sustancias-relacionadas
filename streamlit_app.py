@@ -27,13 +27,14 @@ if uploaded_file is not None:
 
         def estaEntiempo(t):
             for val in dataframe_muestra.iloc[:,col_time].tolist():
+                val = float(val)
                 if abs(100*(val-t)/t<intervalo_tiempo):
                     return True
             
-            return True
+            return False
         
-        dataframe_blanco['esta'] = True
+        #dataframe_blanco['esta'] = True
         dataframe_blanco['Noesta'] = False
-        #dataframe_blanco.iloc[:,col_time].map(lambda x:estaEntiempo(float(x)))
+        dataframe_blanco['esta'] = dataframe_blanco.iloc[:,col_time].map(lambda x:estaEntiempo(float(x)))
 
         st.write(dataframe_blanco.info)
