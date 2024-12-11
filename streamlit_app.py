@@ -24,17 +24,21 @@ if uploaded_file is not None:
         area_multp = st.number_input("Insertar multiplicador área: ",value=2)
         col_time= int(st.number_input("Nro columna para tiempo ret",value=1))
         col_area = int(st.number_input("Nro columna para area",value=2))
+        dataframe_muestra['Pico_presente'] = False
+
+        def areaCorrecta(fila):
+            return dataframe_blanco.iloc[fila,col_area]*2< dataframe_muestra.iloc[fila,col_area]
 
         def estaEntiempo(t):
+            contador = 0
             for val in dataframe_muestra.iloc[:,col_time].tolist():
                 val = float(val)
                 if abs(100*(val-t))/t<intervalo_tiempo:
-                    return True
+                    if areaCorrecta(contador):
+                        dataframe_muestra["Pico_presente"][contador] = True
+                contador = contador + 1
             
-            return False
-        
-        #dataframe_blanco['esta'] = True
-        dataframe_blanco['Noesta'] = False
-        dataframe_blanco['esta'] = dataframe_blanco.iloc[:,col_time].map(lambda x:estaEntiempo(float(x)))
+        for val in dataframe_blanco.iloc[:,col_time].tolist():
+            estaEntiempo(float(val))
 
         st.write(dataframe_blanco)
