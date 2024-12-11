@@ -31,6 +31,7 @@ if uploaded_file is not None:
                     return True
             
             return True
+        
         dataframe_blanco['esta'] = dataframe_blanco.iloc[:,col_time].map(lambda x:estaEntiempo(x))
 
-        st.write(dataframe_blanco['esta'])
+        st.write(dataframe_blanco)
