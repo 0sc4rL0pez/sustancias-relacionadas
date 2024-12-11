@@ -37,4 +37,4 @@ if uploaded_file is not None:
         dataframe_blanco['Noesta'] = False
         dataframe_blanco['esta'] = dataframe_blanco.iloc[:,col_time].map(lambda x:estaEntiempo(float(x)))
 
-        st.write(dataframe_blanco.info)
+        st.write(dataframe_blanco)
