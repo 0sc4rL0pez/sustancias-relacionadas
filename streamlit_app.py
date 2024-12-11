@@ -25,8 +25,7 @@ if uploaded_file is not None:
         col_time= int(st.number_input("Nro columna para tiempo ret",value=1))
         col_area = int(st.number_input("Nro columna para area",value=2))
         dataframe_muestra['Pico_presente'] = False
-        dataframe_muestra['Var Time'] = np.Inf
-        dataframe_muestra['Var Time'] = np.Inf
+        dataframe_muestra['Var Time'] = np.inf
         def areaCorrecta(fila):
             return float(dataframe_blanco.iloc[fila,col_area])*2 >= float(dataframe_muestra.iloc[fila,col_area])
 
