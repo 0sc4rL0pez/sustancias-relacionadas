@@ -44,4 +44,4 @@ if uploaded_file is not None:
         for val in dataframe_blanco.iloc[:,col_time].tolist():
             estaEntiempo(float(val))
 
-        st.write(dataframe_muestra[dataframe_muestra.columns[[col_time,-1]]])
+        st.write(dataframe_muestra)
