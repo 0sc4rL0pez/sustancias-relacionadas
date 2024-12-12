@@ -57,7 +57,7 @@ if uploaded_file is not None:
         st.write(dataframe_muestra)
 
         st.download_button(
-            "Press to Download",
+            "Descargar archivo",
             dataframe_muestra.to_csv(index=False).encode('utf-8'),
             "file.csv",
             "text/csv",
