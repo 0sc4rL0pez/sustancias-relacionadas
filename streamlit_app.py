@@ -55,3 +55,11 @@ if uploaded_file is not None:
             estaEntiempo(float(val),j)
 
         st.write(dataframe_muestra)
+
+        st.download_button(
+            "Press to Download",
+            dataframe_muestra,
+            "file.csv",
+            "text/csv",
+            key='download-csv'
+            )
