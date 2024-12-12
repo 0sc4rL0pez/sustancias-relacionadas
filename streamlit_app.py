@@ -63,3 +63,22 @@ if uploaded_file is not None:
             "text/csv",
             key='download-csv'
             )
+
+st.subheader("Ejemplos")
+
+dataframe_bco = pd.read_csv("blanco.csv")
+st.download_button(
+            "Descargar blanco",
+            dataframe_bco.to_csv(index=False).encode('utf-8'),
+            "file.csv",
+            "text/csv",
+            key='download-csv'
+            )
+dataframe_muestr = pd.read_csv("muestra.csv")
+st.download_button(
+            "Descargar muestra",
+            dataframe_muestr.to_csv(index=False).encode('utf-8'),
+            "file.csv",
+            "text/csv",
+            key='download-csv'
+            )
