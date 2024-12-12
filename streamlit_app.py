@@ -1,11 +1,11 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
+
 st.title("Sustancias Relacionadas")
 
-
+st.subheader("Identificacion de picos a partir de un blanco")
 st.write(
-    "Seleccionar archivos en formato CSV"
+    "Seleccionar archivos en formato .CSV"
 )
 
 uploaded_file = st.file_uploader("Blanco:")
