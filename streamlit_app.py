@@ -25,7 +25,7 @@ if uploaded_file is not None:
         #col_time= int(st.number_input("Nro columna para tiempo ret",value=1)) #igual a 0
         #col_area = int(st.number_input("Nro columna para area",value=2)) # igual a 1
         dataframe_muestra['Name'] = ""
-        dataframe_muestra['Var Time'] = np.inf
+        #dataframe_muestra['Var Time'] = np.inf
         
 
         def estaEntiempo(t,j):
