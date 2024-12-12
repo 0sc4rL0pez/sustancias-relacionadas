@@ -29,12 +29,26 @@ if uploaded_file is not None:
         
 
         def estaEntiempo(t,j):
+            ultima_area = 0
+            ultima_fila_muestra = 0
             for i,val in enumerate(dataframe_muestra.iloc[:,0].tolist()):
                 val = float(val)
                 var_time = abs(100*(val-t))/t
                 if var_time<intervalo_tiempo:
-                    if float(dataframe_blanco.iloc[j,1])*2 >= float(dataframe_muestra.iloc[i,1]):
-                        dataframe_muestra.loc[i,"Name"] = "Blanco"
+                    area_blanco = float(dataframe_blanco.iloc[j,1])
+                    area_muestra = float(dataframe_muestra.iloc[i,1])
+                    if area_blanco*2 >= area_muestra:
+                        if (dataframe_muestra.loc[i,"Name"]==""):
+                            dataframe_muestra.loc[i,"Name"] = "Blanco"
+                            ultima_area = area_muestra
+                            ultima_fila_muestra = i
+                        elif (ultima_area<area_muestra):
+                                dataframe_muestra.loc[i,"Name"] = "Blanco"
+                                ultima_area = area_muestra
+                                ultima_fila_muestra = i
+                                dataframe_muestra.loc[ultima_fila_muestra,"Name"] = ""
+
+
             
         
         for j,val in enumerate(dataframe_blanco.iloc[:,0].tolist()):
