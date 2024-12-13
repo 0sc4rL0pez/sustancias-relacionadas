@@ -2,7 +2,14 @@ import streamlit as st
 import pandas as pd
 
 st.title("Sustancias Relacionadas")
-
+st.subheader("Modo de uso:")
+st.write("Recopilación de datos:")
+st.write("Tanto para el blanco como para la muestra, hacer click derecho en la tabla de integración en el post run y seleccionar *Copy Entire Table*")
+st.write("Crear un nuevo excel y pegar la tabla, exportar los datos en formato archivo .csv:*")
+st.write("Crear un nuevo excel y pegar la tabla, exportar los datos en formato archivo .csv:*")
+st.write("Archivo --> Exportar --> Cambiar el tipo de archivo --> CSV (delimitado por comas)")
+st.write("Subir dicho archivo a su lugar correspondiente (Revisar que el estilo de la tabla sea el mismo en cada archivo")
+st.write("Descargar el resultado")
 st.subheader("Identificacion de picos a partir de un blanco")
 st.write(
     "Seleccionar archivos en formato .CSV"
