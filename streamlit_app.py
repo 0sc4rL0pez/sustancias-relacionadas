@@ -34,7 +34,7 @@ if uploaded_file is not None:
             for i,val in enumerate(dataframe_muestra.iloc[:,col_time].tolist()):
                 val = float(val)
                 #var_time = abs(100*(val-t))/t
-                var_time = abs(100*(val-t))
+                var_time = abs(val-t)
                 if var_time<intervalo_tiempo:
                     area_blanco = float(dataframe_blanco.iloc[j,col_area])
                     area_muestra = float(dataframe_muestra.iloc[i,col_area])
