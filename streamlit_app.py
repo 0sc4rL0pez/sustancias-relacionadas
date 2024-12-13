@@ -22,8 +22,9 @@ if uploaded_file is not None:
 
         intervalo_tiempo = st.number_input("Insertar intervalo de tiempo: ",value=0.25)
         area_multp = st.number_input("Insertar multiplicador área: ",value=2)
-        col_time= 0
-        col_area = 1
+        columnas = dataframe_muestra.columns
+        col_time= columnas.index("Time")
+        col_area = columnas.index("Area")
         dataframe_muestra['Name'] = ""
         #dataframe_muestra['Var Time'] = np.inf
         
