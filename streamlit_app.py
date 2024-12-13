@@ -20,7 +20,7 @@ if uploaded_file is not None:
         dataframe_muestra = pd.read_csv(uploaded_file,sep=',')
         st.write(dataframe_muestra)
 
-        intervalo_tiempo = st.number_input("Insertar intervalo de tiempo: ",value=0.1)
+        intervalo_tiempo = st.number_input("Insertar intervalo de tiempo: ",value=0.2)
         area_multp = st.number_input("Insertar multiplicador área: ",value=2)
         col_time= 0
         col_area = 1
