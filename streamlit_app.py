@@ -3,7 +3,6 @@ import pandas as pd
 
 st.title("Sustancias Relacionadas")
 st.subheader("Modo de uso:")
-st.write("Recopilación de datos:")
 st.write("Tanto para el blanco como para la muestra, hacer click derecho en la tabla de integración en el post run y seleccionar *Copy Entire Table*")
 st.write("Crear un nuevo excel y pegar la tabla, exportar los datos en formato archivo .csv:*")
 st.write("Crear un nuevo excel y pegar la tabla, exportar los datos en formato archivo .csv:*")
