@@ -20,10 +20,10 @@ if uploaded_file is not None:
         dataframe_muestra = pd.read_csv(uploaded_file,sep=',')
         st.write(dataframe_muestra)
 
-        intervalo_tiempo = st.number_input("Insertar intervalo de tiempo(%): ",value=0.5)
+        intervalo_tiempo = st.number_input("Insertar intervalo de tiempo: ",value=0.1)
         area_multp = st.number_input("Insertar multiplicador área: ",value=2)
-        #col_time= int(st.number_input("Nro columna para tiempo ret",value=1)) #igual a 0
-        #col_area = int(st.number_input("Nro columna para area",value=2)) # igual a 1
+        col_time= 0
+        col_area = 1
         dataframe_muestra['Name'] = ""
         #dataframe_muestra['Var Time'] = np.inf
         
@@ -31,12 +31,13 @@ if uploaded_file is not None:
         def estaEntiempo(t,j):
             ultima_area = -1
             ultima_fila_muestra = 0
-            for i,val in enumerate(dataframe_muestra.iloc[:,0].tolist()):
+            for i,val in enumerate(dataframe_muestra.iloc[:,col_time].tolist()):
                 val = float(val)
-                var_time = abs(100*(val-t))/t
+                #var_time = abs(100*(val-t))/t
+                var_time = abs(100*(val-t))
                 if var_time<intervalo_tiempo:
-                    area_blanco = float(dataframe_blanco.iloc[j,1])
-                    area_muestra = float(dataframe_muestra.iloc[i,1])
+                    area_blanco = float(dataframe_blanco.iloc[j,col_area])
+                    area_muestra = float(dataframe_muestra.iloc[i,col_area])
                     if area_blanco*2 >= area_muestra:
                         if (ultima_area == -1):
                             dataframe_muestra.loc[i,"Name"] = "Blanco"
@@ -51,7 +52,7 @@ if uploaded_file is not None:
 
             
         
-        for j,val in enumerate(dataframe_blanco.iloc[:,0].tolist()):
+        for j,val in enumerate(dataframe_blanco.iloc[:,col_time].tolist()):
             estaEntiempo(float(val),j)
 
         st.write(dataframe_muestra)
